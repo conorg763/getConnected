@@ -1,0 +1,38 @@
+<head>
+  <title>Who Was There?</title>
+</head>
+<body>
+  <div class="container">
+  	{{> content}}
+  </div>
+</body>
+
+
+<template name="content">
+	<div class="row">
+    <div class="span6">
+      <div class="well">
+        <h2>Did you go to the <a href="http://www.meetup.com/devbash/members/">Bash Event 2015</a>? Sign in with Twitter to add your name.</h2> 
+        <h1>Don't you Hate it When you Forget to Connect with Others at these Events? </h1>
+       <p>
+         {{> loginButtons}}
+       </p> 
+      </div>
+
+      <table class ="table">
+      	{{#each users}}
+      		{{> user}}
+      		{{/each}}
+      	</table>
+   </div>
+   </div>	
+      </template>
+
+  <template name="user">
+ <tr>
+<td>
+  <a target="_blank" href="{{services.twitter.screenName}}"><img src="{{services.twitter.profile_image_url}}"/> {{profile.name}}</a>
+  <iframe style="width: 300px; height: 20px;" src="//platform.twitter.com/widgets/follow_button.html?screen_name={{services.twitter.screenName}}" height="240" width="320" frameborder="0" scrolling="no"></iframe>
+</td>
+</tr> 
+</template>
